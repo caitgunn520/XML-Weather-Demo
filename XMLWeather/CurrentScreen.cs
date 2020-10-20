@@ -21,9 +21,29 @@ namespace XMLWeather
         {
             // the current information is in index 0, thus why all information is retreived from there
             cityOutput.Text = Form1.days[0].location;
-            tempLabel.Text = Form1.days[0].currentTemp;
-            minOutput.Text = Form1.days[0].tempLow;
-            maxOutput.Text = Form1.days[0].tempHigh;
+            tempLabel.Text = Form1.days[0].currentTemp + " degrees " + Form1.days[0].tempUnits;
+            minOutput.Text = Form1.days[0].tempLow + " degrees " + Form1.days[0].tempUnits;
+            maxOutput.Text = Form1.days[0].tempHigh + " degrees " + Form1.days[0].tempUnits;
+            weatherCondCurrent.Text = Form1.days[0].condition;
+
+            // changes image based on weather
+            switch(Form1.days[0].condition)
+            {
+                case "broken clouds":
+                case "overcast clouds":
+                    weatherSymbol.Image = XMLWeather.Properties.Resources.cloudIcon;
+                    break;
+                case "light rain":
+                case "moderate rain":
+                case "heavy rain":
+                    weatherSymbol.Image = XMLWeather.Properties.Resources.rainIcon;
+                    break;
+                case "clear sky":
+                    weatherSymbol.Image = XMLWeather.Properties.Resources.sunIcon;
+                    break;
+                default:
+                    break;
+            }
         }
 
         /// <summary>
@@ -39,6 +59,11 @@ namespace XMLWeather
 
             ForecastScreen fs = new ForecastScreen();
             f.Controls.Add(fs);
+        }
+
+        private void weatherCondCurrent_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

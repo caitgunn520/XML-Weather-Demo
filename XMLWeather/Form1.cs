@@ -48,10 +48,18 @@ namespace XMLWeather
                 reader.ReadToFollowing("time");
                 d.date = reader.GetAttribute("day");
 
-                //find the temperature element, and get the min and max attributes
+                // retrieve outdoor conditions
+                reader.ReadToFollowing("symbol");
+                d.condition = reader.GetAttribute("name");
+
+                // find the temperature element, and get the min and max attributes
                 reader.ReadToFollowing("temperature");
                 d.tempLow = reader.GetAttribute("min");
                 d.tempHigh = reader.GetAttribute("max");
+
+                // retrieve humidity
+                reader.ReadToFollowing("humidity");
+                d.humidity = reader.GetAttribute("value");
 
                 // add day to days list
                 days.Add(d);
@@ -72,9 +80,21 @@ namespace XMLWeather
             reader.ReadToFollowing("city");
             days[0].location = reader.GetAttribute("name");
 
-            // find the temperature element and add the value attribute, (current temp), to days[0], (today)
+            // retrieve min and max temperatures, as well as current value and units
             reader.ReadToFollowing("temperature");
+            days[0].tempUnits = reader.GetAttribute("unit");
+            days[0].tempLow = reader.GetAttribute("min");
+            days[0].tempHigh = reader.GetAttribute("max");
             days[0].currentTemp = reader.GetAttribute("value");
+
+            // retrieve humidity
+            reader.ReadToFollowing("humidity");
+            days[0].humidity = reader.GetAttribute("value");
+
+            // retrieve outdoor conditions
+            reader.ReadToFollowing("weather");
+            days[0].condition = reader.GetAttribute("value");
+
         }
     }
 }

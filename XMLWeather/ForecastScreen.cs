@@ -26,10 +26,13 @@ namespace XMLWeather
             date1.Text = Form1.days[1].date;
             min1.Text = Form1.days[1].tempLow;
             max1.Text = Form1.days[1].tempHigh;
+            weatherCond1.Text = Form1.days[1].condition;
 
             date2.Text = Form1.days[2].date;
             min2.Text = Form1.days[2].tempLow;
             max2.Text = Form1.days[2].tempHigh;
+            weatherCond2.Text = Form1.days[2].condition;
+
         }
 
         /// <summary>
