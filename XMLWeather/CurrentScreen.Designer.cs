@@ -134,7 +134,7 @@
             this.forecastLabel.Size = new System.Drawing.Size(82, 28);
             this.forecastLabel.TabIndex = 41;
             this.forecastLabel.Text = "2 Day";
-            this.forecastLabel.Click += new System.EventHandler(this.forecastLabel_Click);
+            this.forecastLabel.Click += new System.EventHandler(this.ForecastLabel_Click);
             // 
             // label5
             // 
@@ -157,7 +157,7 @@
             this.weatherCondCurrent.Size = new System.Drawing.Size(94, 20);
             this.weatherCondCurrent.TabIndex = 43;
             this.weatherCondCurrent.Text = "lorem ipsum";
-            this.weatherCondCurrent.Click += new System.EventHandler(this.weatherCondCurrent_Click);
+            this.weatherCondCurrent.Click += new System.EventHandler(this.WeatherCondCurrent_Click);
             // 
             // weatherSymbol
             // 
