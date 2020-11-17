@@ -26,7 +26,7 @@ namespace XMLWeather
 
             // open weather screen for todays weather
             CurrentScreen cs = new CurrentScreen();
-            this.Controls.Add(cs);
+            Controls.Add(cs);
         }
 
         /// <summary>
@@ -36,7 +36,8 @@ namespace XMLWeather
         private void ExtractForecast()
         {
             // get forecast information from web and place in an xml file
-            XmlReader reader = XmlReader.Create("http://api.openweathermap.org/data/2.5/forecast/daily?q=Stratford,CA&mode=xml&units=metric&cnt=7&appid=3f2e224b815c0ed45524322e145149f0");
+            XmlReader reader = XmlReader.Create
+                ("http://api.openweathermap.org/data/2.5/forecast/daily?q=Stratford,CA&mode=xml&units=metric&cnt=7&appid=3f2e224b815c0ed45524322e145149f0");
 
             // extract the relevant information for a day, and repeat for each day in the forecast
             while (reader.Read())
